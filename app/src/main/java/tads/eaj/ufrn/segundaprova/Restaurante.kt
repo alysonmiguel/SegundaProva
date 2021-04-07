@@ -12,5 +12,6 @@ data class Restaurante(
     val categoria: String,
     val numero:Int,
     val numeroFuncionarios:Int,
-    val avaliacao:Float
+    val avaliacao:Float,
+    val logo:Int
 )

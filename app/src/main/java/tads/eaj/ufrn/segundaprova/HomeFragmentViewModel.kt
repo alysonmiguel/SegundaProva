@@ -5,7 +5,11 @@ import android.os.AsyncTask
 import androidx.lifecycle.LiveData
 import androidx.room.Room
 
-class Tarefa (context: Context){
+class HomeFragmentViewModel (context: Context){
+
+    lateinit var lista:LiveData<List<Restaurante>>
+    lateinit var restaurante: Restaurante
+
     val db : RestauranteBanco by lazy {
         Room.databaseBuilder(
                 context,
@@ -13,9 +17,6 @@ class Tarefa (context: Context){
                 "Restaurante"
         ).allowMainThreadQueries().build()  // allowMainThreadQueries permite fazer chamadas na thread principal
     }
-
-    lateinit var lista:LiveData<List<Restaurante>>
-    lateinit var restaurante: Restaurante
 
     inner class taskAsync: AsyncTask<Long, Int, Long>() {
         override fun doInBackground(vararg params: Long?): Long {

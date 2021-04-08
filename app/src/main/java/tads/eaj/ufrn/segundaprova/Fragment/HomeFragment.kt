@@ -1,4 +1,4 @@
-package tads.eaj.ufrn.segundaprova
+package tads.eaj.ufrn.segundaprova.Fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import tads.eaj.ufrn.segundaprova.Fragment.ViewModel.HomeViewModel
+import tads.eaj.ufrn.segundaprova.R
 import tads.eaj.ufrn.segundaprova.databinding.FragmentHomeBinding
 
 @Suppress("UNREACHABLE_CODE")

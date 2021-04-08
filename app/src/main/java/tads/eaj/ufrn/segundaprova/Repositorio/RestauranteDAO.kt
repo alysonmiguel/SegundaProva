@@ -1,7 +1,8 @@
-package tads.eaj.ufrn.segundaprova
+package tads.eaj.ufrn.segundaprova.Repositorio
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import tads.eaj.ufrn.segundaprova.Model.Restaurante
 
 @Dao
 interface RestauranteDAO {

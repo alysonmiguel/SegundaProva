@@ -1,9 +1,10 @@
-package tads.eaj.ufrn.segundaprova
+package tads.eaj.ufrn.segundaprova.Fragment
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import tads.eaj.ufrn.segundaprova.Model.Restaurante
+import tads.eaj.ufrn.segundaprova.R
 
 class RestauranteAdapter : RecyclerView.Adapter<RestauranteViewHolder>() {
 

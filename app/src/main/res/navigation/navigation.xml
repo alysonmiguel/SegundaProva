@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="tads.eaj.ufrn.segundaprova.HomeFragment"
+        android:name="tads.eaj.ufrn.segundaprova.Fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
 

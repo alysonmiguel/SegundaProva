@@ -1,4 +1,4 @@
-package tads.eaj.ufrn.segundaprova
+package tads.eaj.ufrn.segundaprova.Fragment.ViewModel
 
 import android.annotation.SuppressLint
 import android.app.Application
@@ -6,6 +6,8 @@ import android.os.AsyncTask
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.room.Room
+import tads.eaj.ufrn.segundaprova.DataBase.RestauranteBanco
+import tads.eaj.ufrn.segundaprova.Model.Restaurante
 
 class HomeViewModel( application: Application) : AndroidViewModel(application){
 
@@ -27,7 +29,7 @@ class HomeViewModel( application: Application) : AndroidViewModel(application){
     }
 
     @SuppressLint("StaticFieldLeak")
-    inner class taskAsync(var db:RestauranteBanco): AsyncTask<Int, Int, LiveData<List<Restaurante>>>() {
+    inner class taskAsync(var db: RestauranteBanco): AsyncTask<Int, Int, LiveData<List<Restaurante>>>() {
         override fun doInBackground(vararg params: Int?): LiveData<List<Restaurante>> {
             return db.restauranteDao().listaTodos()
         }

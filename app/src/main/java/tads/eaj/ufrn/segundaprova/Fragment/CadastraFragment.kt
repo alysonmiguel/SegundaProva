@@ -55,6 +55,9 @@ class CadastraFragment : Fragment() {
             }
         }
 
+        binding.buttonVoltar.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_cadastraFragment_to_homeFragment)
+        }
 
         return binding.root
     }

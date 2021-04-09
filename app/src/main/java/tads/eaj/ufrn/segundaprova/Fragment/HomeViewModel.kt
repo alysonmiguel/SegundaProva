@@ -1,4 +1,4 @@
-package tads.eaj.ufrn.segundaprova.Fragment.ViewModel
+package tads.eaj.ufrn.segundaprova.Fragment
 
 import android.annotation.SuppressLint
 import android.app.Application
@@ -22,9 +22,6 @@ class HomeViewModel( application: Application) : AndroidViewModel(application){
             ).allowMainThreadQueries().build()  // allowMainThreadQueries permite fazer chamadas na thread principal
         }
 //        db.restauranteDao().cadastrar(Restaurante(1, "RU", "Lagoa", "Natal", "serve serve", 45, 10, 5f, 1))
-//        db.restauranteDao().cadastrar(Restaurante(2, "RU", "Lagoa", "Natal", "serve serve", 45, 10, 5f, 1))
-        //db.restauranteDao().cadastrar(Restaurante(3, "RU", "Lagoa", "Natal", "serve serve", 45, 10, 5f, 1))
-
         lista = taskAsync(db).execute().get()
     }
 

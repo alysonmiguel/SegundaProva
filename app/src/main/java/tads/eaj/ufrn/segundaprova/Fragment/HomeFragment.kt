@@ -8,8 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavAction
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
-import tads.eaj.ufrn.segundaprova.Fragment.ViewModel.HomeViewModel
 import tads.eaj.ufrn.segundaprova.R
 import tads.eaj.ufrn.segundaprova.databinding.FragmentHomeBinding
 
@@ -32,6 +33,10 @@ class HomeFragment : Fragment() {
         binding.recyclerView.adapter = listAdapter
 
         binding.recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, true)
+
+        binding.cadastrarRestaurante.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_cadastraFragment)
+        }
 
         return  binding.root
     }

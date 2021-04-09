@@ -4,7 +4,6 @@
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:clickable="true"
     android:focusable="true"
-    android:foreground="?android:attr/selectableItemBackground"
     android:gravity="center_vertical"
     android:orientation="horizontal">
 
@@ -12,14 +11,24 @@
         android:id="@+id/imgRestaurante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
-        android:src="@drawable/ic_launcher_background" />
+        android:layout_weight="2"
+
+        android:src="@drawable/res" />
 
     <TextView
         android:id="@+id/nomeRestaurante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_weight="7"
+        android:layout_weight="4"
         android:text="nome" />
+
+    <TextView
+        android:id="@+id/ruaRestaurante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="4"
+        android:text="rua" />
+
 </LinearLayout>

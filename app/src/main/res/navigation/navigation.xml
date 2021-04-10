@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/alteraFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_cadastraFragment"
             app:destination="@id/cadastraFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_alteraFragment"
+            app:destination="@id/alteraFragment" />
     </fragment>
     <fragment
         android:id="@+id/cadastraFragment"
@@ -21,6 +24,15 @@
         tools:layout="@layout/cadastra_fragment" >
         <action
             android:id="@+id/action_cadastraFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/alteraFragment"
+        android:name="tads.eaj.ufrn.segundaprova.Fragment.AlteraFragment"
+        android:label="fragment_altera"
+        tools:layout="@layout/fragment_altera" >
+        <action
+            android:id="@+id/action_alteraFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
 

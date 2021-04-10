@@ -20,6 +20,6 @@ class RestauranteAdapter : RecyclerView.Adapter<RestauranteViewHolder>() {
     override fun onBindViewHolder(holder: RestauranteViewHolder, position: Int) {
         val restauranteEscolhido = restaurantes[position]
         holder.textViewNome.text = restauranteEscolhido.nome
-        holder.textViewRua.text = restauranteEscolhido.rua
+//        holder.textViewRua.text = restauranteEscolhido.rua
     }
 }

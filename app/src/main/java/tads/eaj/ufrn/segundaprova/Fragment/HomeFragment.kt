@@ -49,13 +49,11 @@ class HomeFragment : Fragment() {
                 object : MyRecyclerViewClickListener.OnItemClickListener {
 
                     override fun onItemClick(view: View, position: Int) {
-//                        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_alteraFragment)
-                          Navigation.findNavController(requireView()).navigate(HomeFragmentDirections.actionHomeFragmentToAlteraFragment(position+1))
-
+                        Navigation.findNavController(requireView()).navigate(HomeFragmentDirections.actionHomeFragmentToDetalhesFragment( position +1))
                     }
 
                     override fun onItemLongClick(view: View, position: Int) {
-                        Toast.makeText(context, "LONG", Toast.LENGTH_SHORT).show()
+                        Navigation.findNavController(requireView()).navigate(HomeFragmentDirections.actionHomeFragmentToAlteraFragment(position+1))
                     }
 
                 })

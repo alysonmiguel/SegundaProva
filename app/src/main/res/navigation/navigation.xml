@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="tads.eaj.ufrn.segundaprova.Fragment.HomeFragment"
-        android:label="fragment_home"
+        android:label="Restaurante"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_cadastraFragment"
@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_alteraFragment"
             app:destination="@id/alteraFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detalhesFragment"
+            app:destination="@id/detalhesFragment" />
     </fragment>
     <fragment
         android:id="@+id/cadastraFragment"
@@ -40,6 +43,25 @@
             android:name="restauranteId"
             app:argType="integer"/>
     </fragment>
+    <fragment
+        android:id="@+id/detalhesFragment"
+        android:name="tads.eaj.ufrn.segundaprova.Fragment.DetalhesFragment"
+        android:label="fragment_detalhes"
+        tools:layout="@layout/fragment_detalhes" >
+        <action
+            android:id="@+id/action_detalhesFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/detalhesFragment"/>
+        <argument
+            android:name="restauranteId"
+            app:argType="integer"/>
+    </fragment>
+    <fragment
+        android:id="@+id/sobreFragment"
+        android:name="tads.eaj.ufrn.segundaprova.Fragment.SobreFragment"
+        android:label="fragment_sobre"
+        tools:layout="@layout/fragment_sobre" />
 
 
 </navigation>

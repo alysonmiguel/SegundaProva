@@ -9,11 +9,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
-import androidx.room.Room
 import tads.eaj.ufrn.segundaprova.DataBase.InstanciaBanco
-import tads.eaj.ufrn.segundaprova.DataBase.RestauranteBanco
 import tads.eaj.ufrn.segundaprova.R
-import tads.eaj.ufrn.segundaprova.Repositorio.RestauranteDAO
+import tads.eaj.ufrn.segundaprova.ViewModel.CadastraViewModel
 import tads.eaj.ufrn.segundaprova.databinding.CadastraFragmentBinding
 
 class CadastraFragment : Fragment() {

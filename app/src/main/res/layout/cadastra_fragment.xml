@@ -5,7 +5,7 @@
 
     <!--    <data>-->
     <!--        <variable name="viewmodelcadastra"-->
-    <!--            type="tads.eaj.ufrn.segundaprova.Fragment.CadastraViewModel "/>-->
+    <!--            type="tads.eaj.ufrn.segundaprova.ViewModel.CadastraViewModel "/>-->
     <!--    </data>-->
 
     <LinearLayout

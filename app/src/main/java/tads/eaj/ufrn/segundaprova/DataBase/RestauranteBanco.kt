@@ -9,5 +9,4 @@ import tads.eaj.ufrn.segundaprova.Repositorio.RestauranteDAO
 abstract class RestauranteBanco: RoomDatabase(){
     abstract fun restauranteDao(): RestauranteDAO
 
-
 }

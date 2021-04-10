@@ -6,13 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavAction
+import androidx.navigation.NavArgs
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import tads.eaj.ufrn.exemplorecyclerview.MyRecyclerViewClickListener
 import tads.eaj.ufrn.segundaprova.R
+import tads.eaj.ufrn.segundaprova.ViewModel.HomeViewModel
 import tads.eaj.ufrn.segundaprova.databinding.FragmentHomeBinding
 
 @Suppress("UNREACHABLE_CODE")
@@ -27,7 +29,7 @@ class HomeFragment : Fragment() {
 
 
         homeViewModel.lista.observe(viewLifecycleOwner, {
-            listAdapter.restaurantes  = it
+            listAdapter.restaurantes = it
             Log.i("BANCO", it.toString())
             listAdapter.notifyDataSetChanged()
         })
@@ -40,7 +42,24 @@ class HomeFragment : Fragment() {
             Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_cadastraFragment)
         }
 
-//        binding.recyclerView.addOnItemTouchListener()
+        binding.recyclerView.addOnItemTouchListener(
+            MyRecyclerViewClickListener(
+                this.requireActivity(),
+                binding.recyclerView,
+                object : MyRecyclerViewClickListener.OnItemClickListener {
+
+                    override fun onItemClick(view: View, position: Int) {
+//                        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_alteraFragment)
+                          Navigation.findNavController(requireView()).navigate(HomeFragmentDirections.actionHomeFragmentToAlteraFragment(position+1))
+
+                    }
+
+                    override fun onItemLongClick(view: View, position: Int) {
+                        Toast.makeText(context, "LONG", Toast.LENGTH_SHORT).show()
+                    }
+
+                })
+        )
 
         return  binding.root
     }

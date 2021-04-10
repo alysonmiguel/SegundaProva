@@ -1,4 +1,4 @@
-package tads.eaj.ufrn.segundaprova.Fragment
+package tads.eaj.ufrn.segundaprova.ViewModel
 
 import android.annotation.SuppressLint
 import android.app.Application

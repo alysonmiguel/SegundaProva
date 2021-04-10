@@ -1,4 +1,4 @@
-package tads.eaj.ufrn.segundaprova.Fragment
+package tads.eaj.ufrn.segundaprova.ViewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

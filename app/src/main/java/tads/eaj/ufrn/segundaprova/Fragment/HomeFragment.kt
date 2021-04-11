@@ -6,6 +6,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavArgs
 import androidx.navigation.Navigation
@@ -69,6 +70,12 @@ class HomeFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if(item.itemId == R.id.ajuda){
+            var dialog = DialogFragment(R.layout.ajuda_home)
+            dialog.show(requireActivity().supportFragmentManager, "home ajuda")
+        }
+
         return NavigationUI.onNavDestinationSelected(item, this.findNavController()) || super.onOptionsItemSelected(item)
     }
 

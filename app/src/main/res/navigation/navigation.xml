@@ -23,8 +23,8 @@
     <fragment
         android:id="@+id/cadastraFragment"
         android:name="tads.eaj.ufrn.segundaprova.Fragment.CadastraFragment"
-        android:label="cadastra_fragment"
-        tools:layout="@layout/cadastra_fragment" >
+        android:label="Cadastro"
+        tools:layout="@layout/cadastra_fragment">
         <action
             android:id="@+id/action_cadastraFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -32,35 +32,35 @@
     <fragment
         android:id="@+id/alteraFragment"
         android:name="tads.eaj.ufrn.segundaprova.Fragment.AlteraFragment"
-        android:label="fragment_altera"
-        tools:layout="@layout/fragment_altera" >
+        android:label="Alterar"
+        tools:layout="@layout/fragment_altera">
         <action
             android:id="@+id/action_alteraFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:launchSingleTop="false"
-            app:popUpTo="@id/alteraFragment"/>
+            app:popUpTo="@id/alteraFragment" />
         <argument
             android:name="restauranteId"
-            app:argType="integer"/>
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/detalhesFragment"
         android:name="tads.eaj.ufrn.segundaprova.Fragment.DetalhesFragment"
-        android:label="fragment_detalhes"
-        tools:layout="@layout/fragment_detalhes" >
+        android:label="Detalhes"
+        tools:layout="@layout/fragment_detalhes">
         <action
             android:id="@+id/action_detalhesFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:launchSingleTop="false"
-            app:popUpTo="@id/detalhesFragment"/>
+            app:popUpTo="@id/detalhesFragment" />
         <argument
             android:name="restauranteId"
-            app:argType="integer"/>
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/sobreFragment"
         android:name="tads.eaj.ufrn.segundaprova.Fragment.SobreFragment"
-        android:label="fragment_sobre"
+        android:label="Sobre"
         tools:layout="@layout/fragment_sobre" />
 
 

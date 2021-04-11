@@ -11,4 +11,28 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="altera"> Nessa tela será posssível fazer as alteranções nos campos desejados e para consolidar essas alteraçẽos na base de dados é necessário clicar no botão CONFIRMAR no canto inferior direito.</string>
+    <string name="cadastro">Essa tela possibilita realizar o cadastro referente ao restaurante desejado. </string>
+    <string name="detalhes">Nessa tela será possível visualizar todos os atributos referente ao restaurante selecionado.</string>
+    <string name="home">Tela responsável por listar todos os restaurantes cadastrados.</string>
+    <string name="cadastro_restaurante">Cadastro restaurante</string>
+    <string name="rua">Rua</string>
+    <string name="cidade">Cidade</string>
+    <string name="categoria">Categoria</string>
+    <string name="numero">Numero</string>
+    <string name="n_de_funcion_rios">N° de funcionários</string>
+    <string name="voltar">Voltar</string>
+    <string name="restaurantes">Restaurantes</string>
+    <string name="alterar_restaurante">Alterar restaurante</string>
+    <string name="nome">Nome</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="dados_do_restaurante">Dados do restaurante</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="dados_do_desenvolvedor">Dados do desenvolvedor</string>
+    <string name="nome_dev">Nome = Alyson Miguel da silva araujo</string>
+    <string name="email">E-mail = alysonmiguel17@gmail.com</string>
+    <string name="idade_dev">Idade = 21 anos</string>
+    <string name="github">Github: https://github.com/alysonmiguel</string>
+    <string name="descricao">Descrição</string>
+    <string name="categoria_res">Categoria do restaurante</string>
 </resources>

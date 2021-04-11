@@ -13,8 +13,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dados do restaurante"
-            android:textSize="36dp" />
+            android:text="@string/dados_do_restaurante"
+            android:textSize="@dimen/tamanho_titulo" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -26,49 +26,49 @@
                 android:id="@+id/textViewNome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="Nome"
-                android:textSize="26dp" />
+                android:layout_marginLeft="@dimen/magin_left"
+                android:text="@string/nome"
+                android:textSize="@dimen/tamanhoText" />
 
             <TextView
                 android:id="@+id/textViewRua"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="Rua"
-                android:textSize="26dp" />
+                android:layout_marginLeft="@dimen/magin_left"
+                android:text="@string/rua"
+                android:textSize="@dimen/tamanhoText" />
 
             <TextView
                 android:id="@+id/textViewCidade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="Cidade"
-                android:textSize="26dp" />
+                android:layout_marginLeft="@dimen/magin_left"
+                android:text="@string/cidade"
+                android:textSize="@dimen/tamanhoText" />
 
             <TextView
                 android:id="@+id/textViewCategoria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:text="Categoria"
-                android:textSize="26dp" />
+                android:text="@string/categoria"
+                android:textSize="@dimen/tamanhoText" />
 
             <TextView
                 android:id="@+id/textViewNumero"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="Numero"
-                android:textSize="26dp" />
+                android:layout_marginLeft="@dimen/magin_left"
+                android:text="@string/numero"
+                android:textSize="@dimen/tamanhoText" />
 
             <TextView
                 android:id="@+id/textViewNFuncionario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="N° Funcionário"
-                android:textSize="26dp" />
+                android:layout_marginLeft="@dimen/magin_left"
+                android:text="@string/n_de_funcion_rios"
+                android:textSize="@dimen/tamanhoText" />
         </LinearLayout>
 
         <LinearLayout
@@ -82,7 +82,8 @@
                 android:id="@+id/buttonVoltar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Voltar" />
+                android:layout_marginBottom="@dimen/marginBottom"
+                android:text="@string/voltar" />
 
         </LinearLayout>
 

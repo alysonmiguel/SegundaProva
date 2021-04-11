@@ -3,15 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Fragment.CadastraFragment">
 
-    <!--    <data>-->
-    <!--        <variable name="viewmodelcadastra"-->
-    <!--            type="tads.eaj.ufrn.segundaprova.ViewModel.CadastraViewModel "/>-->
-    <!--    </data>-->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="20dp"
+        android:layout_margin="@dimen/magen"
         android:orientation="vertical">
 
         <TextView
@@ -19,8 +14,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Cadastro restaurante"
-            android:textSize="36dp" />
+            android:text="@string/cadastro_restaurante"
+            android:textSize="@dimen/tamanho_titulo" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -41,14 +36,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Nome"
-                        android:textSize="20dp" />
+                        android:textSize="@dimen/tamanhoText" />
 
                     <EditText
                         android:id="@+id/editTextNome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="textPersonName" />
+                        android:inputType="text" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -60,8 +55,8 @@
                         android:id="@+id/textViewRua"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Rua"
-                        android:textSize="20dp" />
+                        android:text="@string/rua"
+                        android:textSize="@dimen/tamanhoText" />
 
                     <EditText
                         android:id="@+id/editTextRua"
@@ -80,8 +75,8 @@
                         android:id="@+id/textViewCidade"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Cidade"
-                        android:textSize="20dp" />
+                        android:text="@string/cidade"
+                        android:textSize="@dimen/tamanhoText" />
 
                     <EditText
                         android:id="@+id/editTextCidade"
@@ -100,8 +95,8 @@
                         android:id="@+id/textViewCategoria"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Categoria"
-                        android:textSize="20dp" />
+                        android:text="@string/categoria"
+                        android:textSize="@dimen/tamanhoText" />
 
                     <EditText
                         android:id="@+id/editTextCategoria"
@@ -120,8 +115,8 @@
                         android:id="@+id/textViewNumero"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Numero"
-                        android:textSize="20dp" />
+                        android:text="@string/numero"
+                        android:textSize="@dimen/tamanhoText" />
 
                     <EditText
                         android:id="@+id/editTextNumero"
@@ -140,8 +135,8 @@
                         android:id="@+id/textViewNFuncionario"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="N° de funcionários"
-                        android:textSize="20dp" />
+                        android:text="@string/n_de_funcion_rios"
+                        android:textSize="@dimen/tamanhoText" />
 
                     <EditText
                         android:id="@+id/editTextNumeroFuncionarios"
@@ -156,20 +151,19 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:orientation="vertical"
-
                     android:gravity="center">
 
                     <Button
                         android:id="@+id/buttonVoltar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Voltar" />
+                        android:text="@string/voltar" />
 
                     <Button
                         android:id="@+id/buttonCadastrar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Cadastrar" />
+                        android:text="@string/cadastrar" />
 
                 </LinearLayout>
             </LinearLayout>

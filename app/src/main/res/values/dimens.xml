@@ -2,4 +2,11 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="fragment_horizontal_margin">16dp</dimen>
     <dimen name="fragment_vertical_margin">16dp</dimen>
+    <dimen name="magen">20dp</dimen>
+    <dimen name="tamanho_titulo">36sp</dimen>
+    <dimen name="tamanhoText">20sp</dimen>
+    <dimen name="magin_left">20dp</dimen>
+    <dimen name="marginBottom">64dp</dimen>
+    <dimen name="foto">100dp</dimen>
+    <dimen name="margin_bottom_sobre">20dp</dimen>
 </resources>

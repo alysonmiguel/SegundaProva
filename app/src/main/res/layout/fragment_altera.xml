@@ -18,8 +18,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Alterar restaurante"
-                android:textSize="36dp" />
+                android:text="@string/alterar_restaurante"
+                android:textSize="@dimen/tamanho_titulo" />
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -39,8 +39,8 @@
                             android:id="@+id/textViewNome"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="Nome"
-                            android:textSize="20dp" />
+                            android:text="@string/nome"
+                            android:textSize="@dimen/tamanhoText" />
 
                         <EditText
                             android:id="@+id/editTextNome"
@@ -59,8 +59,8 @@
                             android:id="@+id/textViewRua"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="Rua"
-                            android:textSize="20dp" />
+                            android:text="@string/rua"
+                            android:textSize="@dimen/tamanhoText" />
 
                         <EditText
                             android:id="@+id/editTextRua"
@@ -79,8 +79,8 @@
                             android:id="@+id/textViewCidade"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="Cidade"
-                            android:textSize="20dp" />
+                            android:text="@string/cidade"
+                            android:textSize="@dimen/tamanhoText" />
 
                         <EditText
                             android:id="@+id/editTextCidade"
@@ -99,8 +99,8 @@
                             android:id="@+id/textViewCategoria"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="Categoria"
-                            android:textSize="20dp" />
+                            android:text="@string/categoria"
+                            android:textSize="@dimen/tamanhoText" />
 
                         <EditText
                             android:id="@+id/editTextCategoria"
@@ -119,8 +119,8 @@
                             android:id="@+id/textViewNumero"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="Numero"
-                            android:textSize="20dp" />
+                            android:text="@string/numero"
+                            android:textSize="@dimen/tamanhoText" />
 
                         <EditText
                             android:id="@+id/editTextNumero"
@@ -139,8 +139,8 @@
                             android:id="@+id/textViewNFuncionario"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="N° de funcionários"
-                            android:textSize="20dp" />
+                            android:text="@string/n_de_funcion_rios"
+                            android:textSize="@dimen/tamanhoText" />
 
                         <EditText
                             android:id="@+id/editTextNumeroFuncionarios"
@@ -160,15 +160,15 @@
                             android:id="@+id/buttonVoltar"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@android:dimen/app_icon_size"
-                            android:text="Voltar" />
+                            android:layout_marginEnd="@android:dimen/app_icon_size"
+                            android:text="@string/voltar" />
 
                         <Button
                             android:id="@+id/buttonConfirmar"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@android:dimen/app_icon_size"
-                            android:text="Confirmar" />
+                            android:layout_marginStart="@android:dimen/app_icon_size"
+                            android:text="@string/confirmar" />
 
                     </LinearLayout>
 

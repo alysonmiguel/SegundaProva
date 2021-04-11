@@ -1,10 +1,7 @@
-package tads.eaj.ufrn.segundaprova.ViewModel
+package tads.eaj.ufrn.segundaprova.Fragment.ViewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.room.Room
-import tads.eaj.ufrn.segundaprova.DataBase.RestauranteBanco
-import tads.eaj.ufrn.segundaprova.Model.Restaurante
 
 class AlteraViewModel(application: Application) : AndroidViewModel(application) {
 

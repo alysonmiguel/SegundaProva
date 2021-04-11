@@ -4,18 +4,15 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavArgs
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import tads.eaj.ufrn.exemplorecyclerview.MyRecyclerViewClickListener
 import tads.eaj.ufrn.segundaprova.R
-import tads.eaj.ufrn.segundaprova.ViewModel.HomeViewModel
+import tads.eaj.ufrn.segundaprova.Fragment.ViewModel.HomeViewModel
 import tads.eaj.ufrn.segundaprova.databinding.FragmentHomeBinding
 
 @Suppress("UNREACHABLE_CODE")
@@ -25,9 +22,9 @@ class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
     var listAdapter = RestauranteAdapter()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-
 
         homeViewModel.lista.observe(viewLifecycleOwner, {
             listAdapter.restaurantes = it

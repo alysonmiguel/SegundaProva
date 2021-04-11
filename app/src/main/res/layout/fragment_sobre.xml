@@ -5,13 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.SobreFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/magen"
-        android:gravity="center"
-        android:text="@string/dados_do_desenvolvedor"
-        android:textSize="@dimen/tamanho_titulo" />
 
     <LinearLayout
         android:layout_width="match_parent"

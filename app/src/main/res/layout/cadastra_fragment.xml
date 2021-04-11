@@ -9,14 +9,6 @@
         android:layout_margin="@dimen/magen"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/cadastro_restaurante"
-            android:textSize="@dimen/tamanho_titulo" />
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">

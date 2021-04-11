@@ -10,12 +10,6 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/dados_do_restaurante"
-            android:textSize="@dimen/tamanho_titulo" />
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -80,7 +74,7 @@
 
             <Button
                 android:id="@+id/buttonVoltar"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/marginBottom"
                 android:text="@string/voltar" />

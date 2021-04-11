@@ -23,7 +23,7 @@
     <fragment
         android:id="@+id/cadastraFragment"
         android:name="tads.eaj.ufrn.segundaprova.Fragment.CadastraFragment"
-        android:label="Cadastro"
+        android:label=" Cadastro de restaurante"
         tools:layout="@layout/cadastra_fragment">
         <action
             android:id="@+id/action_cadastraFragment_to_homeFragment"
@@ -32,7 +32,7 @@
     <fragment
         android:id="@+id/alteraFragment"
         android:name="tads.eaj.ufrn.segundaprova.Fragment.AlteraFragment"
-        android:label="Alterar"
+        android:label="Alterar restaurante"
         tools:layout="@layout/fragment_altera">
         <action
             android:id="@+id/action_alteraFragment_to_homeFragment"
@@ -46,7 +46,7 @@
     <fragment
         android:id="@+id/detalhesFragment"
         android:name="tads.eaj.ufrn.segundaprova.Fragment.DetalhesFragment"
-        android:label="Detalhes"
+        android:label="Detalhes do restaurante"
         tools:layout="@layout/fragment_detalhes">
         <action
             android:id="@+id/action_detalhesFragment_to_homeFragment"

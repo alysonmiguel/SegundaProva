@@ -11,26 +11,20 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import tads.eaj.ufrn.segundaprova.DataBase.InstanciaBanco
 import tads.eaj.ufrn.segundaprova.R
-import tads.eaj.ufrn.segundaprova.ViewModel.CadastraViewModel
+import tads.eaj.ufrn.segundaprova.Fragment.ViewModel.CadastraViewModel
 import tads.eaj.ufrn.segundaprova.databinding.CadastraFragmentBinding
 
 class CadastraFragment : Fragment() {
 
-//    companion object {
-//        fun newInstance() = CadastraFragment()
-//    }
-
     lateinit var viewModel: CadastraViewModel
     lateinit var binding: CadastraFragmentBinding
     lateinit var banco: InstanciaBanco
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         viewModel = ViewModelProvider(this).get(CadastraViewModel::class.java)
         binding = DataBindingUtil.inflate(inflater, R.layout.cadastra_fragment, container, false)
         banco = InstanciaBanco(inflater.context)
-
 
         binding.buttonCadastrar.setOnClickListener {
 

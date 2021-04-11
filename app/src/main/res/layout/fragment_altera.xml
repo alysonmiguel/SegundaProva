@@ -13,13 +13,7 @@
             android:layout_margin="20dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/alterar_restaurante"
-                android:textSize="@dimen/tamanho_titulo" />
+
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -154,20 +148,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
+                        android:orientation="vertical"
                         android:gravity="center">
 
                         <Button
                             android:id="@+id/buttonVoltar"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="@android:dimen/app_icon_size"
                             android:text="@string/voltar" />
 
                         <Button
                             android:id="@+id/buttonConfirmar"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@android:dimen/app_icon_size"
                             android:text="@string/confirmar" />
 
                     </LinearLayout>

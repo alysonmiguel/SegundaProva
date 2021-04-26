@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Fragment.DetalhesFragment">
+    tools:context=".DetalhesFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="tads.eaj.ufrn.segundaprova.DetalhesFragmentViewModel" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -9,6 +15,7 @@
         android:layout_margin="20dp"
         android:gravity="center"
         android:orientation="vertical">
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -21,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/magin_left"
-                android:text="@string/nome"
+                android:text="@{viewModel.restaurante.nome}"
                 android:textSize="@dimen/tamanhoText" />
 
             <TextView
@@ -29,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/magin_left"
-                android:text="@string/rua"
+                android:text="@{viewModel.restaurante.rua}"
                 android:textSize="@dimen/tamanhoText" />
 
             <TextView
@@ -37,7 +44,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/magin_left"
-                android:text="@string/cidade"
                 android:textSize="@dimen/tamanhoText" />
 
             <TextView
@@ -45,7 +51,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:text="@string/categoria"
                 android:textSize="@dimen/tamanhoText" />
 
             <TextView
@@ -53,7 +58,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/magin_left"
-                android:text="@string/numero"
                 android:textSize="@dimen/tamanhoText" />
 
             <TextView
@@ -61,7 +65,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/magin_left"
-                android:text="@string/n_de_funcion_rios"
                 android:textSize="@dimen/tamanhoText" />
         </LinearLayout>
 

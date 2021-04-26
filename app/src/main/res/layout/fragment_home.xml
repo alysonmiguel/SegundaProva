@@ -8,10 +8,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".Fragment.HomeFragment">
+        tools:context=".HomeFragment">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
+            android:id="@+id/recyclerRestaurante"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:listitem="@layout/restaurante_inflater" />
@@ -29,8 +29,6 @@
                 app:srcCompat="@drawable/outline_add_black_48" />
         </LinearLayout>
 
-
     </LinearLayout>
-
 
 </layout>

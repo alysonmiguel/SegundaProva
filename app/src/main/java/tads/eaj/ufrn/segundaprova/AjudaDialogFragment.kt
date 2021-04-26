@@ -1,4 +1,4 @@
-package tads.eaj.ufrn.segundaprova.Fragment
+package tads.eaj.ufrn.segundaprova
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 
 
-class DialogFragment(fragments: Int) : DialogFragment() {
+class AjudaDialogFragment(fragments: Int) : DialogFragment() {
     var fragment = fragments
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let{

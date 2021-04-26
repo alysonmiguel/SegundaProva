@@ -26,11 +26,39 @@
             android:text="Nome" />
 
         <TextView
-            android:id="@+id/categoriaRestaurante"
+            android:id="@+id/ruaRestaurante"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/categoria_res" />
+            android:textSize="@dimen/tamanhoText"
+            android:text="Rua" />
 
+<!--        <TextView-->
+<!--            android:id="@+id/cidadeRestaurante"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="@dimen/tamanhoText"-->
+<!--            android:text="Nome" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/categoriaRestaurante"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/categoria_res" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/numeroRestaurante"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="@dimen/tamanhoText"-->
+<!--            android:text="Nome" />-->
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/nfRestaurante"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="@dimen/tamanhoText"-->
+<!--            android:text="Nome" />-->
 
     </LinearLayout>
 

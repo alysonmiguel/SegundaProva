@@ -1,175 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AlteraFragment">
 
-    <FrameLayout
+    <data>
+e
+        <variable
+            name="viewModel"
+            type="tads.eaj.ufrn.segundaprova.AlteraFragmentViewModel" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Fragment.AlteraFragment">
+        android:layout_margin="@dimen/magen"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="20dp"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-
-
-            <ScrollView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/textViewNome"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Nome"
+                        android:textSize="@dimen/tamanhoText" />
+
+                    <EditText
+                        android:id="@+id/editTextNome"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textViewNome"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="@string/nome"
-                            android:textSize="@dimen/tamanhoText" />
-
-                        <EditText
-                            android:id="@+id/editTextNome"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="textPersonName" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textViewRua"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="@string/rua"
-                            android:textSize="@dimen/tamanhoText" />
-
-                        <EditText
-                            android:id="@+id/editTextRua"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="textPersonName" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textViewCidade"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="@string/cidade"
-                            android:textSize="@dimen/tamanhoText" />
-
-                        <EditText
-                            android:id="@+id/editTextCidade"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="textPersonName" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textViewCategoria"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="@string/categoria"
-                            android:textSize="@dimen/tamanhoText" />
-
-                        <EditText
-                            android:id="@+id/editTextCategoria"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="textPersonName" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textViewNumero"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="@string/numero"
-                            android:textSize="@dimen/tamanhoText" />
-
-                        <EditText
-                            android:id="@+id/editTextNumero"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="number" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textViewNFuncionario"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="@string/n_de_funcion_rios"
-                            android:textSize="@dimen/tamanhoText" />
-
-                        <EditText
-                            android:id="@+id/editTextNumeroFuncionarios"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ems="10"
-                            android:inputType="number" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:orientation="vertical"
-                        android:gravity="center">
-
-                        <Button
-                            android:id="@+id/buttonVoltar"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/voltar" />
-
-                        <Button
-                            android:id="@+id/buttonConfirmar"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/confirmar" />
-
-                    </LinearLayout>
-
+                        android:ems="10"
+                        android:inputType="text"
+                        android:text="@={viewModel.restaurante.nome}" />
                 </LinearLayout>
 
-            </ScrollView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/textViewRua"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/rua"
+                        android:textSize="@dimen/tamanhoText" />
 
-    </FrameLayout>
+                    <EditText
+                        android:id="@+id/editTextRua"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="@={viewModel.restaurante.rua}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textViewCidade"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/cidade"
+                        android:textSize="@dimen/tamanhoText" />
+
+                    <EditText
+                        android:id="@+id/editTextCidade"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="@={viewModel.restaurante.cidade}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textViewCategoria"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/categoria"
+                        android:textSize="@dimen/tamanhoText" />
+
+                    <EditText
+                        android:id="@+id/editTextCategoria"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="@={viewModel.restaurante.categoria}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textViewNumero"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/numero"
+                        android:textSize="@dimen/tamanhoText" />
+
+                    <EditText
+                        android:id="@+id/editTextNumero"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:text="@={``+viewModel.restaurante.numero}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textViewNFuncionario"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/n_de_funcion_rios"
+                        android:textSize="@dimen/tamanhoText" />
+
+                    <EditText
+                        android:id="@+id/editTextNumeroFuncionarios"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:text="@={``+viewModel.restaurante.numeroFuncionarios}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/buttonVoltar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/voltar" />
+
+                    <Button
+                        android:id="@+id/buttonConfirmar"
+                        android:onClick="@{() -> viewModel.alteraRestaurante()}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/confirmar" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
 </layout>

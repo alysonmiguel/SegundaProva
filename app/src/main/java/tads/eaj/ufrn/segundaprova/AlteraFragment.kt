@@ -1,40 +1,32 @@
-package tads.eaj.ufrn.segundaprova.Fragment
+package tads.eaj.ufrn.segundaprova
 
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.ui.NavigationUI
-import tads.eaj.ufrn.segundaprova.DataBase.InstanciaBanco
-import tads.eaj.ufrn.segundaprova.Model.Restaurante
-import tads.eaj.ufrn.segundaprova.R
 import tads.eaj.ufrn.segundaprova.databinding.FragmentAlteraBinding
 
 class AlteraFragment : Fragment() {
 
     lateinit var binding: FragmentAlteraBinding
-    lateinit var instancia: InstanciaBanco
-    lateinit var restaurante: Restaurante
+    lateinit var viewModel: AlteraFragmentViewModel
+
+    val args: AlteraFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
 
+        val viewModelFactory = AlteraFragmentViewModel.AlteraFragmentViewModelFactory(args.restauranteId.toLong(), requireActivity().application)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_altera, container, false)
-        instancia = InstanciaBanco(inflater.context)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(AlteraFragmentViewModel::class.java)
 
-        val args: AlteraFragmentArgs by navArgs()
-
-        restaurante = instancia.instanciaBanco().restauranteDao().listaPorId(args.restauranteId.toLong())
-
-        binding.editTextNome.setText(restaurante.nome)
-        binding.editTextRua.setText(restaurante.rua)
-        binding.editTextCidade.setText(restaurante.cidade)
-        binding.editTextCategoria.setText(restaurante.categoria)
-        binding.editTextNumero.setText(restaurante.numero.toString())
-        binding.editTextNumeroFuncionarios.setText(restaurante.numeroFuncionarios.toString())
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
 
         binding.buttonVoltar.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_alteraFragment_to_homeFragment)
@@ -45,23 +37,21 @@ class AlteraFragment : Fragment() {
             if (binding.editTextNome.text.isEmpty() || binding.editTextRua.text.isEmpty() ||
                 binding.editTextCidade.text.isEmpty() || binding.editTextCategoria.text.isEmpty() ||
                 binding.editTextNumero.text.isEmpty() || binding.editTextNumeroFuncionarios.text.isEmpty()){
-
                 Toast.makeText(this.context, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
             }else {
-                val nome = binding.editTextNome.text.toString();
-                val rua = binding.editTextRua.text.toString();
-                val cidade = binding.editTextCidade.text.toString();
-                val categoria = binding.editTextCategoria.text.toString();
-                val numero = binding.editTextNumero.text.toString().toInt();
-                val numeroFuncionarios = binding.editTextNumeroFuncionarios.text.toString().toInt();
-
-                instancia.instanciaBanco().restauranteDao().editar(Restaurante(args.restauranteId.toLong(), nome, rua, cidade, categoria, numero, numeroFuncionarios))
+                viewModel.alteraRestaurante()
 
                 Navigation.findNavController(it).navigate(R.id.action_alteraFragment_to_homeFragment)
             }
         }
 
         setHasOptionsMenu(true)
+
+        viewModel.eventAlteraRestaurante.observe(viewLifecycleOwner, { hasChanged ->
+            if (hasChanged == true){
+                Navigation.findNavController(requireView()).navigate(AlteraFragmentDirections.actionAlteraFragmentToHomeFragment())
+            }
+        })
 
         return binding.root
     }
@@ -74,7 +64,7 @@ class AlteraFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         if(item.itemId == R.id.ajuda){
-            var dialog = DialogFragment(R.layout.ajuda_altera)
+            var dialog = AjudaDialogFragment(R.layout.ajuda_altera)
             dialog.show(requireActivity().supportFragmentManager, "home ajuda")
         }
 

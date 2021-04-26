@@ -1,4 +1,4 @@
-package tads.eaj.ufrn.segundaprova.Fragment
+package tads.eaj.ufrn.segundaprova
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -1,4 +1,4 @@
-package tads.eaj.ufrn.segundaprova.Model
+package tads.eaj.ufrn.segundaprova
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -12,4 +12,6 @@ data class Restaurante(
     var categoria: String,
     var numero:Int,
     var numeroFuncionarios:Int
-)
+){
+    constructor() : this(0L,"","","","",0,0)
+}

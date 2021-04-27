@@ -1,4 +1,4 @@
-package tads.eaj.ufrn.segundaprova
+package tads.eaj.ufrn.segundaprova.ui.altera
 
 import android.os.Bundle
 import android.view.*
@@ -10,6 +10,9 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.ui.NavigationUI
+import tads.eaj.ufrn.segundaprova.ui.dialogs.AjudaDialogFragment
+import tads.eaj.ufrn.segundaprova.R
+import tads.eaj.ufrn.segundaprova.SegundaProvaApplication
 import tads.eaj.ufrn.segundaprova.databinding.FragmentAlteraBinding
 
 class AlteraFragment : Fragment() {
@@ -21,7 +24,10 @@ class AlteraFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
 
-        val viewModelFactory = AlteraFragmentViewModel.AlteraFragmentViewModelFactory(args.restauranteId.toLong(), requireActivity().application)
+        val viewModelFactory = AlteraFragmentViewModel.AlteraFragmentViewModelFactory(
+            args.restauranteId.toLong(),
+            (requireActivity().application as SegundaProvaApplication).repository
+        )
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_altera, container, false)
         viewModel = ViewModelProvider(this, viewModelFactory).get(AlteraFragmentViewModel::class.java)
 

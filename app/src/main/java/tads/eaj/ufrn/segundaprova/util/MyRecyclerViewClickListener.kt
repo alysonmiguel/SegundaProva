@@ -1,4 +1,4 @@
-package tads.eaj.ufrn.exemplorecyclerview
+package tads.eaj.ufrn.segundaprova.util
 
 import android.content.Context
 import android.util.Log
@@ -7,7 +7,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import android.view.GestureDetector
 
-class MyRecyclerViewClickListener(val context:Context, val view:RecyclerView, val listener:OnItemClickListener) : RecyclerView.OnItemTouchListener  {
+class MyRecyclerViewClickListener(val context:Context, val view:RecyclerView, val listener: OnItemClickListener) : RecyclerView.OnItemTouchListener  {
 
     var myGestureDetector: GestureDetector
 

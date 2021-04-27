@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".DetalhesFragment">
+    tools:context=".ui.detalhes.DetalhesFragment">
 
     <data>
         <variable
             name="viewModel"
-            type="tads.eaj.ufrn.segundaprova.DetalhesFragmentViewModel" />
+            type="tads.eaj.ufrn.segundaprova.ui.detalhes.DetalhesFragmentViewModel" />
     </data>
 
     <LinearLayout
@@ -42,6 +42,7 @@
             <TextView
                 android:id="@+id/textViewCidade"
                 android:layout_width="wrap_content"
+                android:text="@{viewModel.restaurante.cidade}"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/magin_left"
                 android:textSize="@dimen/tamanhoText" />
@@ -49,6 +50,7 @@
             <TextView
                 android:id="@+id/textViewCategoria"
                 android:layout_width="wrap_content"
+                android:text="@{viewModel.restaurante.categoria}"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:textSize="@dimen/tamanhoText" />
@@ -57,6 +59,7 @@
                 android:id="@+id/textViewNumero"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{``+viewModel.restaurante.numero}"
                 android:layout_marginLeft="@dimen/magin_left"
                 android:textSize="@dimen/tamanhoText" />
 
@@ -65,6 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/magin_left"
+                android:text="@{``+viewModel.restaurante.numeroFuncionarios}"
                 android:textSize="@dimen/tamanhoText" />
         </LinearLayout>
 

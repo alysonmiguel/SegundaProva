@@ -1,34 +1,34 @@
-package tads.eaj.ufrn.segundaprova
+package tads.eaj.ufrn.segundaprova.ui.detalhes
 
 import android.app.Application
 import android.os.AsyncTask
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.*
 import androidx.room.Room
+import kotlinx.coroutines.launch
+import tads.eaj.ufrn.segundaprova.model.Restaurante
+import tads.eaj.ufrn.segundaprova.database.RestauranteDAO
+import tads.eaj.ufrn.segundaprova.database.RestauranteDatabase
+import tads.eaj.ufrn.segundaprova.database.RestauranteRespository
 
-class DetalhesFragmentViewModel(id:Long, application: Application) : ViewModel() {
-    var restaurante:Restaurante
-    private val db:RestauranteDatabase by lazy {
-        Room.databaseBuilder(application.applicationContext, RestauranteDatabase::class.java, "restaurante.sqlite")
-            .build()
-    }
+class DetalhesFragmentViewModel private constructor(val id:Long, val restauranteRespository: RestauranteRespository ) : ViewModel() {
+    private var _restaurante = MutableLiveData<Restaurante>()
+    val restaurante:LiveData<Restaurante>
+        get() = _restaurante
 
     init {
-        restaurante = getRestaurante(id, db.restauranteDao())
+        getRestaurante(id)
     }
 
-    fun getRestaurante(id:Long, restauranteDAO: RestauranteDAO) = GetRestauranteAsyncTask(restauranteDAO).execute(id).get()
-
-    class GetRestauranteAsyncTask(var restauranteDAO: RestauranteDAO) : AsyncTask<Long, Unit, Restaurante>() {
-        override fun doInBackground(vararg params: Long?): Restaurante {
-            return restauranteDAO.listaPorId(params[0]!!)
+    fun getRestaurante(id:Long) {
+        viewModelScope.launch {
+            _restaurante.value = restauranteRespository.listById(id)
         }
     }
 
-    class DetalhesFragmentViewModelFactory(val id: Long, val application: Application) : ViewModelProvider.Factory {
+    class DetalhesFragmentViewModelFactory(val id: Long, val restauranteRespository: RestauranteRespository) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(DetalhesFragmentViewModel::class.java)) {
-                return DetalhesFragmentViewModel(id, application) as T
+                return DetalhesFragmentViewModel(id, restauranteRespository) as T
             }
             throw IllegalArgumentException("Unknown ViewModel class")
         }

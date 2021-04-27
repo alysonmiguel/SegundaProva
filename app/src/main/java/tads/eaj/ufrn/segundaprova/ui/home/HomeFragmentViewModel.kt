@@ -1,25 +1,23 @@
-package tads.eaj.ufrn.segundaprova
+package tads.eaj.ufrn.segundaprova.ui.home
 
-import android.annotation.SuppressLint
 import android.app.Application
-import android.os.AsyncTask
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
+import androidx.lifecycle.*
 import androidx.room.Room
+import tads.eaj.ufrn.segundaprova.model.Restaurante
+import tads.eaj.ufrn.segundaprova.database.RestauranteDatabase
+import tads.eaj.ufrn.segundaprova.database.RestauranteRespository
+import tads.eaj.ufrn.segundaprova.ui.altera.AlteraFragmentViewModel
 
-class HomeFragmentViewModel(application: Application) : AndroidViewModel(application){
+class HomeFragmentViewModel private  constructor(repositorio: RestauranteRespository) : ViewModel(){
 
-    var lista: LiveData<List<Restaurante>>
+    var lista: LiveData<List<Restaurante>> = repositorio.listAll.asLiveData()
 
-    private val db:RestauranteDatabase by lazy {
-        Room.databaseBuilder(
-            application.applicationContext,
-            RestauranteDatabase::class.java,
-            "restaurante.sqlite"
-        ).build()
-    }
-
-    init {
-        lista = db.restauranteDao().listaTodos()
+    class Factory(val repositorio: RestauranteRespository): ViewModelProvider.Factory {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(HomeFragmentViewModel::class.java)) {
+                return HomeFragmentViewModel(repositorio) as T
+            }
+            throw IllegalArgumentException("Unknown ViewModel class")
+        }
     }
 }

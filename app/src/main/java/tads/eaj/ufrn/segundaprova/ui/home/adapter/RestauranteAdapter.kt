@@ -1,41 +1,49 @@
-package tads.eaj.ufrn.segundaprova
+package tads.eaj.ufrn.segundaprova.ui.home.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import tads.eaj.ufrn.segundaprova.R
+import tads.eaj.ufrn.segundaprova.databinding.RestauranteInflaterBinding
+import tads.eaj.ufrn.segundaprova.model.Restaurante
 
-class RestauranteAdapter : RecyclerView.Adapter<RestauranteAdapter.RestauranteViewHolder>() {
-
-    var list:List<Restaurante> = arrayListOf()
+class RestauranteAdapter : androidx.recyclerview.widget.ListAdapter<Restaurante, RestauranteAdapter.RestauranteViewHolder>(RestauranteDiffCalback()){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestauranteViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.restaurante_inflater, parent, false)
-        return RestauranteViewHolder(view)
+        return RestauranteViewHolder.from(parent)
     }
-    override fun getItemCount(): Int {
-        return list.size
-    }
+
     override fun onBindViewHolder(holder: RestauranteViewHolder, position: Int) {
-        val restauranteEscolhido = list[position]
-        holder.textViewNome.text = restauranteEscolhido.nome
-        holder.textViewRua.text = restauranteEscolhido.rua
-//        holder.textViewCidade.text = restauranteEscolhido.cidade
-//        holder.textViewCategoria.text = restauranteEscolhido.categoria
-//        holder.textViewNumero.text = restauranteEscolhido.numero.toString()
-//        holder.textViewNF.text = restauranteEscolhido.numeroFuncionarios.toString()
+        val restaurante = getItem(position)
+        holder.bind(restaurante)
     }
 
-    class RestauranteViewHolder (v: View) : RecyclerView.ViewHolder(v) {
-        var textViewNome = v.findViewById<TextView>(R.id.nomeRestaurante)
-        var textViewRua = v.findViewById<TextView>(R.id.ruaRestaurante)
-//        var textViewCidade = v.findViewById<TextView>(R.id.cidadeRestaurante)
-//        var textViewCategoria = v.findViewById<TextView>(R.id.categoriaRestaurante)
-//        var textViewNumero = v.findViewById<TextView>(R.id.numeroRestaurante)
-//        var textViewNF = v.findViewById<TextView>(R.id.nfRestaurante)
+    class RestauranteViewHolder private constructor(val binding: RestauranteInflaterBinding) : RecyclerView.ViewHolder(binding.root) {
 
+        fun bind(restaurante: Restaurante) {
+            binding.restaurante = restaurante
+        }
+
+        companion object {
+            fun from(parent: ViewGroup): RestauranteViewHolder {
+                val inflater = LayoutInflater.from(parent.context)
+                val binding:RestauranteInflaterBinding = DataBindingUtil.inflate(inflater, R.layout.restaurante_inflater, parent, false)
+                return RestauranteViewHolder(binding)
+            }
+        }
+    }
+}
+
+class RestauranteDiffCalback : DiffUtil.ItemCallback<Restaurante>(){
+
+    override fun areItemsTheSame(oldItem: Restaurante, newItem: Restaurante): Boolean {
+        return  oldItem.id == newItem.id
     }
 
-
+    override fun areContentsTheSame(oldItem: Restaurante, newItem: Restaurante): Boolean {
+        return  oldItem == newItem
+    }
 }

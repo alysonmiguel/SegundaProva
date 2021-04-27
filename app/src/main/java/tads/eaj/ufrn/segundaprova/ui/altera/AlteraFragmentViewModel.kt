@@ -1,36 +1,29 @@
-package tads.eaj.ufrn.segundaprova
+package tads.eaj.ufrn.segundaprova.ui.altera
 
-import android.app.Application
-import android.os.AsyncTask
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.room.Room
+import androidx.lifecycle.*
+import kotlinx.coroutines.launch
+import tads.eaj.ufrn.segundaprova.model.Restaurante
+import tads.eaj.ufrn.segundaprova.database.RestauranteRespository
 
-class AlteraFragmentViewModel(id:Long, application: Application) : ViewModel() {
-    var restaurante: Restaurante
+class AlteraFragmentViewModel private constructor(val id:Long, val restauranteRespository:RestauranteRespository) : ViewModel() {
+    private val _restaurante = MutableLiveData<Restaurante>()
+    val restaurante:LiveData<Restaurante>
+        get() = _restaurante
 
     private var _eventAlteraRestaurante = MutableLiveData<Boolean>(false)
     val eventAlteraRestaurante:LiveData<Boolean>
         get() = _eventAlteraRestaurante
 
-
-    private val db: RestauranteDatabase by lazy {
-        Room.databaseBuilder(
-            application.applicationContext,
-            RestauranteDatabase::class.java,
-            "restaurante.sqlite"
-        )
-            .build()
-    }
-
     init {
-        restaurante = getRestaurante(id, db.restauranteDao())
+        getRestaurante(id)
     }
 
     fun alteraRestaurante(){
-        AlteraRestauranteAsyncTask(db.restauranteDao()).execute(restaurante)
+        viewModelScope.launch {
+            restaurante.value?.let {
+                restauranteRespository.update(it)
+            }
+        }
         _eventAlteraRestaurante.value = true
     }
 
@@ -38,27 +31,16 @@ class AlteraFragmentViewModel(id:Long, application: Application) : ViewModel() {
         _eventAlteraRestaurante.value = false
     }
 
-
-    fun getRestaurante(id: Long, restauranteDAO: RestauranteDAO) = GetRestauranteAsyncTask(restauranteDAO).execute(id).get()
-
-    class GetRestauranteAsyncTask(var restauranteDAO: RestauranteDAO) : AsyncTask<Long, Unit, Restaurante>() {
-        override fun doInBackground(vararg params: Long?): Restaurante {
-            return restauranteDAO.listaPorId(params[0]!!)
+    fun getRestaurante(id: Long){
+        viewModelScope.launch {
+            _restaurante.value = restauranteRespository.listById(id)
         }
     }
 
-
-    class AlteraRestauranteAsyncTask(var restauranteDAO: RestauranteDAO) : AsyncTask<Restaurante, Unit, Unit>() {
-        override fun doInBackground(vararg params: Restaurante?) {
-            return restauranteDAO.editar(params[0]!!)
-        }
-    }
-
-    class AlteraFragmentViewModelFactory(val id: Long, val application: Application) :
-        ViewModelProvider.Factory {
+    class AlteraFragmentViewModelFactory(val id: Long, val restauranteRespository: RestauranteRespository) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(AlteraFragmentViewModel::class.java)) {
-                return AlteraFragmentViewModel(id, application) as T
+                return AlteraFragmentViewModel(id, restauranteRespository) as T
             }
             throw IllegalArgumentException("Unknown ViewModel class")
         }

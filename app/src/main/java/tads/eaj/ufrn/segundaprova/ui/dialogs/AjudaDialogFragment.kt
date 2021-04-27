@@ -1,10 +1,9 @@
-package tads.eaj.ufrn.segundaprova
+package tads.eaj.ufrn.segundaprova.ui.dialogs
 
 import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
-
 
 class AjudaDialogFragment(fragments: Int) : DialogFragment() {
     var fragment = fragments

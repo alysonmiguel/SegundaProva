@@ -1,15 +1,16 @@
-package tads.eaj.ufrn.segundaprova
+package tads.eaj.ufrn.segundaprova.ui.cadastro
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import tads.eaj.ufrn.segundaprova.ui.dialogs.AjudaDialogFragment
+import tads.eaj.ufrn.segundaprova.R
+import tads.eaj.ufrn.segundaprova.SegundaProvaApplication
 import tads.eaj.ufrn.segundaprova.databinding.CadastraFragmentBinding
 
 class CadastraFragment : Fragment() {
@@ -19,8 +20,9 @@ class CadastraFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        viewModel = ViewModelProvider(this).get(CadastraFragmentViewModel::class.java)
         binding = DataBindingUtil.inflate(inflater, R.layout.cadastra_fragment, container, false)
+        val viewModelFactory = CadastraFragmentViewModel.Factory((requireActivity().application as SegundaProvaApplication).repository)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(CadastraFragmentViewModel::class.java)
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
@@ -34,19 +36,6 @@ class CadastraFragment : Fragment() {
             }
         })
 
-//        binding.buttonCadastrar.setOnClickListener {
-//
-//            if (binding.editTextNome.text.isEmpty() || binding.editTextRua.text.isEmpty() ||
-//                binding.editTextCidade.text.isEmpty() || binding.editTextCategoria.text.isEmpty() ||
-//                binding.editTextNumero.text.isEmpty() || binding.editTextNumeroFuncionarios.text.isEmpty()){
-//
-//                Toast.makeText(this.context, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
-//            }else {
-//                fragmentViewModel.cadastraRestaurante()
-//                Navigation.findNavController(it).navigate(R.id.action_cadastraFragment_to_homeFragment)
-//            }
-//        }
-
         binding.buttonVoltar.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_cadastraFragment_to_homeFragment)
         }
@@ -59,12 +48,10 @@ class CadastraFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         if(item.itemId == R.id.ajuda){
             var dialog = AjudaDialogFragment(R.layout.ajuda_cadastro)
             dialog.show(requireActivity().supportFragmentManager, "home ajuda")
         }
-
         return NavigationUI.onNavDestinationSelected(item, this.findNavController()) || super.onOptionsItemSelected(item)
     }
 }

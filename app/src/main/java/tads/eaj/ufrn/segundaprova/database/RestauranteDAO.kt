@@ -1,18 +1,20 @@
-package tads.eaj.ufrn.segundaprova
+package tads.eaj.ufrn.segundaprova.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
+import tads.eaj.ufrn.segundaprova.model.Restaurante
 
 @Dao
 interface RestauranteDAO {
     @Insert
-    fun cadastrar(restaurante: Restaurante)
+    suspend fun insert(restaurante: Restaurante)
     @Update
-    fun editar( restaurante: Restaurante)
+    suspend fun update( restaurante: Restaurante)
     @Delete
-    fun excluir(restaurante: Restaurante)
+    suspend fun delete(restaurante: Restaurante)
     @Query("SELECT * FROM RESTAURANTE" )
-    fun listaTodos():LiveData<List<Restaurante>>
+    fun listAll():Flow<List<Restaurante>>
     @Query("SELECT * FROM RESTAURANTE WHERE id =:id" )
-    fun listaPorId(id:Long) : Restaurante
+    suspend fun listById(id:Long) : Restaurante
 }

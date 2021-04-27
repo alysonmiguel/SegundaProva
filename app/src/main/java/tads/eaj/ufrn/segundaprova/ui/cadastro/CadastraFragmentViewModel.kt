@@ -1,14 +1,11 @@
-package tads.eaj.ufrn.segundaprova
+package tads.eaj.ufrn.segundaprova.ui.cadastro
 
-import android.app.Application
-import android.os.AsyncTask
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.room.Room
-import tads.eaj.ufrn.segundaprova.Restaurante
+import androidx.lifecycle.*
+import kotlinx.coroutines.launch
+import tads.eaj.ufrn.segundaprova.model.Restaurante
+import tads.eaj.ufrn.segundaprova.database.RestauranteRespository
 
-class CadastraFragmentViewModel(application: Application) : AndroidViewModel(application) {
+class CadastraFragmentViewModel(val restauranteRespository: RestauranteRespository) : ViewModel() {
 
     var restaurante: Restaurante = Restaurante()
 
@@ -16,12 +13,10 @@ class CadastraFragmentViewModel(application: Application) : AndroidViewModel(app
     val eventCadastraRestaurante:LiveData<Boolean>
         get() = _eventCadastraRestaurante
 
-    private val db:RestauranteDatabase by lazy {
-        Room.databaseBuilder(application.applicationContext, RestauranteDatabase::class.java, "restaurante.sqlite").build()
-    }
-
     fun cadastraRestaurante(){
-        CadastrarRestauranteAsyncTask(db.restauranteDao()).execute(restaurante)
+        viewModelScope.launch {
+            restauranteRespository.insert(restaurante)
+        }
         _eventCadastraRestaurante.value = true
     }
 
@@ -29,9 +24,13 @@ class CadastraFragmentViewModel(application: Application) : AndroidViewModel(app
         _eventCadastraRestaurante.value = false
     }
 
-    class CadastrarRestauranteAsyncTask(var restauranteDAO: RestauranteDAO): AsyncTask<Restaurante, Unit,Unit>(){
-        override fun doInBackground(vararg params: Restaurante?) {
-            return restauranteDAO.cadastrar(params[0]!!)
+    class Factory(val repositorio: RestauranteRespository): ViewModelProvider.Factory {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(CadastraFragmentViewModel::class.java)) {
+                return CadastraFragmentViewModel(repositorio) as T
+            }
+            throw IllegalArgumentException("Unknown ViewModel class")
         }
     }
+
 }

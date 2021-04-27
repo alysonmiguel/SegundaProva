@@ -14,31 +14,38 @@ import tads.eaj.ufrn.segundaprova.databinding.CadastraFragmentBinding
 
 class CadastraFragment : Fragment() {
 
-    lateinit var fragmentViewModel: CadastraFragmentViewModel
+    lateinit var viewModel: CadastraFragmentViewModel
     lateinit var binding: CadastraFragmentBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        fragmentViewModel = ViewModelProvider(this).get(CadastraFragmentViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(CadastraFragmentViewModel::class.java)
         binding = DataBindingUtil.inflate(inflater, R.layout.cadastra_fragment, container, false)
 
-        binding.viewModel = fragmentViewModel
+        binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
         setHasOptionsMenu(true)
 
-        binding.buttonCadastrar.setOnClickListener {
-
-            if (binding.editTextNome.text.isEmpty() || binding.editTextRua.text.isEmpty() ||
-                binding.editTextCidade.text.isEmpty() || binding.editTextCategoria.text.isEmpty() ||
-                binding.editTextNumero.text.isEmpty() || binding.editTextNumeroFuncionarios.text.isEmpty()){
-
-                Toast.makeText(this.context, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
-            }else {
-                fragmentViewModel.cadastraRestaurante()
-                Navigation.findNavController(it).navigate(R.id.action_cadastraFragment_to_homeFragment)
+        viewModel.eventCadastraRestaurante.observe(viewLifecycleOwner, { hasChanged ->
+            if(hasChanged){
+                Navigation.findNavController(requireView()).navigate(CadastraFragmentDirections.actionCadastraFragmentToHomeFragment())
+                viewModel.onCadastraRestauranteComplete()
             }
-        }
+        })
+
+//        binding.buttonCadastrar.setOnClickListener {
+//
+//            if (binding.editTextNome.text.isEmpty() || binding.editTextRua.text.isEmpty() ||
+//                binding.editTextCidade.text.isEmpty() || binding.editTextCategoria.text.isEmpty() ||
+//                binding.editTextNumero.text.isEmpty() || binding.editTextNumeroFuncionarios.text.isEmpty()){
+//
+//                Toast.makeText(this.context, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
+//            }else {
+//                fragmentViewModel.cadastraRestaurante()
+//                Navigation.findNavController(it).navigate(R.id.action_cadastraFragment_to_homeFragment)
+//            }
+//        }
 
         binding.buttonVoltar.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_cadastraFragment_to_homeFragment)

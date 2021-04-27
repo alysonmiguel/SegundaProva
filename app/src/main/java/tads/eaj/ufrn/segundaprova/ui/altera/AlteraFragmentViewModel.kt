@@ -34,6 +34,11 @@ class AlteraFragmentViewModel(id:Long, application: Application) : ViewModel() {
         _eventAlteraRestaurante.value = true
     }
 
+    fun onAlteraRestauranteComplete(){
+        _eventAlteraRestaurante.value = false
+    }
+
+
     fun getRestaurante(id: Long, restauranteDAO: RestauranteDAO) = GetRestauranteAsyncTask(restauranteDAO).execute(id).get()
 
     class GetRestauranteAsyncTask(var restauranteDAO: RestauranteDAO) : AsyncTask<Long, Unit, Restaurante>() {

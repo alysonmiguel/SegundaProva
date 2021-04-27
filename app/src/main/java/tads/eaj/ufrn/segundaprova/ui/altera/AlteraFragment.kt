@@ -50,6 +50,7 @@ class AlteraFragment : Fragment() {
         viewModel.eventAlteraRestaurante.observe(viewLifecycleOwner, { hasChanged ->
             if (hasChanged == true){
                 Navigation.findNavController(requireView()).navigate(AlteraFragmentDirections.actionAlteraFragmentToHomeFragment())
+                viewModel.onAlteraRestauranteComplete()
             }
         })
 

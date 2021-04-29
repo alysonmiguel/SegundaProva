@@ -5,6 +5,8 @@ import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
@@ -14,25 +16,36 @@ import tads.eaj.ufrn.segundaprova.util.MyRecyclerViewClickListener
 import tads.eaj.ufrn.segundaprova.ui.dialogs.AjudaDialogFragment
 import tads.eaj.ufrn.segundaprova.R
 import tads.eaj.ufrn.segundaprova.SegundaProvaApplication
+import tads.eaj.ufrn.segundaprova.database.RestauranteRepository
 import tads.eaj.ufrn.segundaprova.ui.home.adapter.RestauranteAdapter
 import tads.eaj.ufrn.segundaprova.databinding.FragmentHomeBinding
+import tads.eaj.ufrn.segundaprova.model.Restaurante
 
 @Suppress("UNREACHABLE_CODE")
 class HomeFragment : Fragment() {
 
+//    val viewModel: HomeFragmentViewModel by viewModels()
     lateinit var viewModel: HomeFragmentViewModel
     lateinit var binding: FragmentHomeBinding
     var listAdapter = RestauranteAdapter()
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
-        val viewModelFactory = HomeFragmentViewModel.Factory((requireActivity().application as SegundaProvaApplication).repository)
 
+        val viewModelFactory = HomeFragmentViewModel.Factory( (requireActivity().application as SegundaProvaApplication).repository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(HomeFragmentViewModel::class.java)
+//
+        viewModel.getRestaurante()
 
-        viewModel.lista.observe(viewLifecycleOwner, {
-            listAdapter.submitList(it)
-            Log.i("BANCO", it.toString())
+        viewModel.restaurante.observe(viewLifecycleOwner, {
+//            if (it.isSuccessful){
+//                listAdapter.submitList(it as MutableList<Restaurante>)
+//                it.body()?.nome.toString()
+                Log.i("BANCO", "ALYSON MIGUEL sdfdssdf")
+                Log.i("BANCO", it.body()?.nome.toString())
+//            }
         })
 
         binding.recyclerRestaurante.adapter = listAdapter

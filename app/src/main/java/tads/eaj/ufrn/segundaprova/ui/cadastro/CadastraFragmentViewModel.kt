@@ -3,9 +3,9 @@ package tads.eaj.ufrn.segundaprova.ui.cadastro
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
 import tads.eaj.ufrn.segundaprova.model.Restaurante
-import tads.eaj.ufrn.segundaprova.database.RestauranteRespository
+import tads.eaj.ufrn.segundaprova.database.RestauranteRepository
 
-class CadastraFragmentViewModel(val restauranteRespository: RestauranteRespository) : ViewModel() {
+class CadastraFragmentViewModel(val restauranteRepository: RestauranteRepository) : ViewModel() {
 
     var restaurante: Restaurante = Restaurante()
 
@@ -15,7 +15,7 @@ class CadastraFragmentViewModel(val restauranteRespository: RestauranteResposito
 
     fun cadastraRestaurante(){
         viewModelScope.launch {
-            restauranteRespository.insert(restaurante)
+            restauranteRepository.insert(restaurante)
         }
         _eventCadastraRestaurante.value = true
     }
@@ -24,7 +24,7 @@ class CadastraFragmentViewModel(val restauranteRespository: RestauranteResposito
         _eventCadastraRestaurante.value = false
     }
 
-    class Factory(val repositorio: RestauranteRespository): ViewModelProvider.Factory {
+    class Factory(val repositorio: RestauranteRepository): ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(CadastraFragmentViewModel::class.java)) {
                 return CadastraFragmentViewModel(repositorio) as T

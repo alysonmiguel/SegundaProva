@@ -1,18 +1,42 @@
 package tads.eaj.ufrn.segundaprova.ui.home
 
-import android.app.Application
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
-import androidx.room.Room
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.HiltAndroidApp
+import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.scopes.ActivityRetainedScoped
+import kotlinx.coroutines.launch
+import retrofit2.Response
 import tads.eaj.ufrn.segundaprova.model.Restaurante
-import tads.eaj.ufrn.segundaprova.database.RestauranteDatabase
-import tads.eaj.ufrn.segundaprova.database.RestauranteRespository
-import tads.eaj.ufrn.segundaprova.ui.altera.AlteraFragmentViewModel
+import tads.eaj.ufrn.segundaprova.database.RestauranteRepository
+import javax.inject.Inject
 
-class HomeFragmentViewModel private  constructor(repositorio: RestauranteRespository) : ViewModel(){
+//@HiltViewModel
+class HomeFragmentViewModel (/*savedStateHandle: SavedStateHandle ,*/ val repositorio: RestauranteRepository) : ViewModel(){
 
-    var lista: LiveData<List<Restaurante>> = repositorio.listAll.asLiveData()
 
-    class Factory(val repositorio: RestauranteRespository): ViewModelProvider.Factory {
+//    var lista: LiveData<List<Restaurante>> = repositorio.listAll.asLiveData()
+//    var restauranteId : String = savedStateHandle["id"] ?: throw java.lang.IllegalArgumentException("missing id")
+    val restaurante:MutableLiveData<Response<Restaurante>> = MutableLiveData()
+//    val restaurante: LiveData<Restaurante> = _restaurante
+
+    fun getRestaurante(){
+        viewModelScope.launch {
+            val response = repositorio.getRestaurante()
+            restaurante.value = response
+        }
+    }
+
+
+
+//    init {
+//        viewModelScope.launch {
+//            _restaurante.value = repositorio.getAll as Restaurante
+//        }
+//    }
+
+    class Factory( val repositorio: RestauranteRepository): ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(HomeFragmentViewModel::class.java)) {
                 return HomeFragmentViewModel(repositorio) as T

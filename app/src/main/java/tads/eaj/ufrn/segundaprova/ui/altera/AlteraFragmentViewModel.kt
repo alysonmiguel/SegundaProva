@@ -3,9 +3,9 @@ package tads.eaj.ufrn.segundaprova.ui.altera
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
 import tads.eaj.ufrn.segundaprova.model.Restaurante
-import tads.eaj.ufrn.segundaprova.database.RestauranteRespository
+import tads.eaj.ufrn.segundaprova.database.RestauranteRepository
 
-class AlteraFragmentViewModel private constructor(val id:Long, val restauranteRespository:RestauranteRespository) : ViewModel() {
+class AlteraFragmentViewModel private constructor(val id:Long, val restauranteRepository:RestauranteRepository) : ViewModel() {
     private val _restaurante = MutableLiveData<Restaurante>()
     val restaurante:LiveData<Restaurante>
         get() = _restaurante
@@ -21,7 +21,7 @@ class AlteraFragmentViewModel private constructor(val id:Long, val restauranteRe
     fun alteraRestaurante(){
         viewModelScope.launch {
             restaurante.value?.let {
-                restauranteRespository.update(it)
+                restauranteRepository.update(it)
             }
         }
         _eventAlteraRestaurante.value = true
@@ -33,14 +33,14 @@ class AlteraFragmentViewModel private constructor(val id:Long, val restauranteRe
 
     fun getRestaurante(id: Long){
         viewModelScope.launch {
-            _restaurante.value = restauranteRespository.listById(id)
+            _restaurante.value = restauranteRepository.listById(id)
         }
     }
 
-    class AlteraFragmentViewModelFactory(val id: Long, val restauranteRespository: RestauranteRespository) : ViewModelProvider.Factory {
+    class AlteraFragmentViewModelFactory(val id: Long, val restauranteRepository: RestauranteRepository) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(AlteraFragmentViewModel::class.java)) {
-                return AlteraFragmentViewModel(id, restauranteRespository) as T
+                return AlteraFragmentViewModel(id, restauranteRepository) as T
             }
             throw IllegalArgumentException("Unknown ViewModel class")
         }

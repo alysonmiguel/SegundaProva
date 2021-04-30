@@ -50,9 +50,14 @@ class HomeFragment : Fragment() {
                     }
                 }))
 
-        binding.cadastrarRestaurante.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_cadastraFragment)
+//        binding.cadastrarRestaurante.setOnClickListener {
+//            Navigation.findNavController(it).navigate(R.id.action_homeFragment_to_cadastraFragment)
+//        }
+
+        binding.buttonAtualizar.setOnClickListener {
+           viewModel.getRestaurantes()
         }
+
 
         setHasOptionsMenu(true)
         return  binding.root

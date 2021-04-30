@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="tads.eaj.ufrn.segundaprova.HomeFragmentViewModel" />
+    </data>
+
     <LinearLayout
         android:id="@+id/fragmentLayout"
         android:layout_width="match_parent"
@@ -21,12 +27,13 @@
             android:layout_height="match_parent"
             android:gravity="bottom|right">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/cadastrarRestaurante"
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/buttonAtualizar"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                app:srcCompat="@drawable/outline_add_black_48" />
+                android:layout_weight="1"
+                android:text="Button" />
+
         </LinearLayout>
 
     </LinearLayout>
